@@ -13,8 +13,9 @@ OAuth2Sample/
 ├── Login.aspx.vb         # ログイン画面 コードビハインド
 ├── Callback.aspx.vb      # OAuth2 コールバック処理
 ├── Default.aspx.vb       # ログイン後トップページ（保護ページ例）
-└── Web.config            # 設定ファイル
+└── Web.config.example    # 設定ファイルの例
 ```
+- 他のファイルはプロジェクト新規作成時のテンプレートから流用している。
 
 ---
 
@@ -33,6 +34,12 @@ OAuth2Sample/
 
 ### 2. Web.config を編集
 
+1. `Web.config.example` を `Web.config` にコピーする
+2. 以下のキーに、Google Cloud Console で取得したクライアント ID とクライアント シークレットを設定する
+
+> [!NOTE]
+> Google_ClientSecret を Web.config に直接書いている場合、> そのままコミットすると機密情報が漏洩します。
+
 ```xml
 <add key="Google_ClientId"     value="取得したクライアントID" />
 <add key="Google_ClientSecret" value="取得したクライアントシークレット" />
@@ -43,16 +50,6 @@ OAuth2Sample/
 
 ```
 Install-Package Newtonsoft.Json
-```
-
-### 4. Callback.aspx の作成
-
-`Callback.aspx.vb` に対応する ASPX ファイルを作成（コードビハインドのみでも可）:
-
-```aspx
-<%@ Page Language="VB" AutoEventWireup="false"
-         CodeBehind="Callback.aspx.vb"
-         Inherits="OAuth2Sample.Callback" Async="true" %>
 ```
 
 ---
@@ -81,6 +78,7 @@ Install-Package Newtonsoft.Json
   ▼
 [Default.aspx] ─── ログイン完了（保護ページ）
 ```
+- なおDefault.aspx以外のページは保護していないのでログインしなくても表示できる。
 
 ---
 

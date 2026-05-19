@@ -1,3 +1,8 @@
 <Solution>
+  <Folder Name="/ソリューション項目/">
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+    <File Path="Web.config.example" />
+  </Folder>
   <Project Path="VBOAuth2.vbproj" Id="cd8e53d2-b177-494b-ae08-1ceef98e43d7" />
 </Solution>
