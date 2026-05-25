@@ -1,0 +1,3 @@
+# 自動生成JSを除外
+Content/** linguist-generated=true
+Scripts/** linguist-generated=true
